@@ -1,0 +1,1 @@
+#' kmeans++ clustering#'#' Ordinary kmeans clustering but with better seeding          kmeanspp <- function(x, k){   m <- as.matrix(x)      n <- nrow(m)      #simple seed   centers <- m[sample.int(n,k),,drop=FALSE]   d <- m %*% t(centers)   cl <- apply(d, 1, function(x){which(max(x)==x)})    cl}x <- sample(10, replace=TRUE)kmeanspp(x, 2)
